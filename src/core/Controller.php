@@ -27,8 +27,8 @@ class Controller
         $action_name = self::DEFAULT_ACTION;
         if (strlen($request) > 1) {
             $path_parts = explode('/', $request);
-            $controller_name = ucfirst($path_parts[0]);
-            $action_name = $path_parts[1] ?? self::DEFAULT_ACTION;
+            $controller_name = ucfirst($path_parts[1]);
+            $action_name = $path_parts[2] ?? self::DEFAULT_ACTION;
         }
         $controller_path = $this->getControllerPathNames($action_name);
         $final_controller_path = "{$controller_name}ApplicationController";

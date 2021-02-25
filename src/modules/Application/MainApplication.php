@@ -9,7 +9,7 @@ use Core\Controller;
 class MainApplication
 {
     private array $config;
-    private static \PDO $adapter;
+    public static \PDO $adapter;
     private Controller $controller;
 
     /**

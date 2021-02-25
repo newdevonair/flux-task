@@ -37,8 +37,8 @@ final class Classes extends AbstractMigration
                     'friday',
                     'saturday',
                 ]])
-                ->addColumn('start_time', 'integer')
-                ->addColumn('end_time', 'integer')
+                ->addColumn('start_time', 'string', ['limit' => 5])
+                ->addColumn('end_time', 'string', ['limit' => 5])
                 ->addForeignKey('class_id', 'flux_test_classes', 'class_id', [
                     'update' => 'CASCADE',
                     'delete' => 'CASCADE'
