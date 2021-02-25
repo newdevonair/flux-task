@@ -33,12 +33,14 @@ class Controller
         $controller_path = $this->getControllerPathNames($action_name);
         $final_controller_path = "{$controller_name}ApplicationController";
         $action_name = "{$controller_path}Action";
-        $controller = new $this->controller_list[$final_controller_path]();
+        $controller_full_path = $this->controller_list[$final_controller_path];
+        $module_name = $this->getModuleNameFromPath($controller_full_path);
+        $controller = new $this->controller_list[$final_controller_path]($module_name);
         return $controller->$action_name();
-     }
+    }
 
-     private function getControllerPathNames(string $action_name): string
-     {
+    private function getControllerPathNames(string $action_name): string
+    {
          $path_names = explode('-', $action_name);
          $final_path = [];
          foreach ($path_names as $path) {
@@ -46,5 +48,15 @@ class Controller
          }
 
          return implode('', $final_path);
+    }
+
+    /**
+     * @param string $full_path
+     * @return string
+     */
+     private function getModuleNameFromPath(string $full_path): string
+     {
+         $path_parts = explode('\\', $full_path);
+         return $path_parts[0];
      }
 }

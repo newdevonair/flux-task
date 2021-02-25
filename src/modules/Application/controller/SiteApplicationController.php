@@ -2,10 +2,12 @@
 
 namespace Application\Controller;
 
-class SiteApplicationController
+use Core\AbstractController;
+
+class SiteApplicationController extends AbstractController
 {
     public function indexAction()
     {
-
+        $this->render('index', ['title' => 'aaa']);
     }
 }

@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 require_once "../vendor/autoload.php";
+define('APPLICATION_DIR', '/var/www/flux-task');
 $config = require_once "../config/main-config.php";
 $modules_list = $config['modules'];
 foreach ($modules_list as $module) {
