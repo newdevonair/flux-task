@@ -1,0 +1,22 @@
+{
+  "description": "Flux test sak",
+  "keywords": ["flux", "oop", "test-task"],
+  "type": "project",
+  "require": {
+    "php": "^7.4",
+    "ext-pdo": "*",
+    "robmorgan/phinx": "^0.12.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Application\\": "src/modules/Application",
+      "Core\\": "src/core"
+    }
+  },
+  "config": {
+    "process-timeout": 1800,
+    "fxp-asset": {
+      "enabled": false
+    }
+  }
+}
