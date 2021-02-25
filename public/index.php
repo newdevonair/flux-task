@@ -14,5 +14,5 @@ try {
     $application = new Application\MainApplication($config);
     $application->run();
 } catch (Throwable $t) {
-    var_dump($t);
+    file_put_contents('../data/log/application.log', print_r($t, true), FILE_APPEND);
 }
